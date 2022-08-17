@@ -41,11 +41,6 @@
             "filename": "../../security-user/security-user.md"
         },
         {
-            "title": "Lab 7: Security - MySQL Enterprise Audit",
-            "description": "Security - MySQL Enterprise Audit",
-            "filename": "../../security-audit/security-audit.md"
-        },
-        {
             "title": "Lab 8: Security - MySQL Enterprise Transparent Data Encryption (TDE)",
             "description": "Security - MySQL Enterprise Transparent Data Encryption (TDE)",
             "filename": "../../security-tde/security-tde.md"

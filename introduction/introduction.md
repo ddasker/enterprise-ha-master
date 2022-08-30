@@ -22,14 +22,18 @@ If you have not set it up, then please go through the following steps:
 In this workshop, you will learn how to work with 
 - MySQL Enterprise Edition
 - MySQL Shell
-- MySQL Enterprise Audit
-- MySQL Enterprise Transparent Data Encryption 
+- MySQL High Availability
+- MySQL Router
 
 ## Learn More
 
 * [MySQL Home Page](https://www.mysql.com/)
-* [MySQL Enterprise Audit](https://dev.mysql.com/doc/refman/8.0/en/audit-log.html)
-* [MySQL Enterprise Transparent Data Encryption](https://dev.mysql.com/doc/refman/8.0/en/innodb-data-encryption.html)
+* [MySQL Replication](https://dev.mysql.com/doc/refman/8.0/en/replication.html)
+* [MySQL Group Replication](https://dev.mysql.com/doc/refman/8.0/en/group-replication.html)
+* [MySQL Shell](https://dev.mysql.com/doc/mysql-shell/8.0/en/)
+* [MySQL ReplicaSet](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-innodb-replicaset.html)
+* [MySQL InnoDB Cluster](https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-innodb-cluster.html)
+* [MySQL InnoDB ClusterSet](https://dev.mysql.com/doc/mysql-shell/8.0/en/innodb-clusterset.html)
 
 ## Acknowledgements
 * **Author** - Dale Dasker, MySQL Solution Engineering

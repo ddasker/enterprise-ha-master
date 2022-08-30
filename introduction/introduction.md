@@ -1,8 +1,8 @@
-# Introduction
+## Introduction
 
 ## About this Workshop
 
-Securing the data stored in your MySQL Server is key towards achieving Regulatory Compliance.  This workshop covers the installation, configuration and testing of MySQL Security Based Enterprise Features.  We will go through how to setup and run different Highly Availability Solutions.
+Securing the data stored in your MySQL Server against failures is key towards achieving Regulatory Compliance.  This workshop covers the installation, configuration and testing of MySQL High Availability architectures.  We will go through how to setup and run different Highly Availability Solutions.
 
 Estimated Workshop Time: 1 hours 30 minutes (This estimate is for the entire workshop - it is the sum of the estimates provided for each of the labs included in the workshop.)
 

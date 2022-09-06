@@ -3,7 +3,7 @@
 ## Introduction
 
 Detailed Installation of MySQL Enterprise Edition 8.0 and MySQL Shell on Linux
-Objective: Tarball Installation of MySQL 8 Enterprise on Linux
+Objective: RPM Installation of MySQL 8 Enterprise on Linux
 
 
 Tarball Installation of MySQL Enterprise 8 on Linux

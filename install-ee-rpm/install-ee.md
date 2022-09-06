@@ -3,10 +3,11 @@
 ## Introduction
 
 Detailed Installation of MySQL Enterprise Edition 8.0 and MySQL Shell on Linux
+
 Objective: RPM Installation of MySQL 8 Enterprise on Linux
 
 
-Tarball Installation of MySQL Enterprise 8 on Linux
+RPM Installation of MySQL Enterprise 8 on Linux
 
 Estimated Time: 15 minutes
 
@@ -30,7 +31,7 @@ This lab assumes you have:
     - ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql> the command must be executed in a client like MySQL, MySQL Workbench
     - ![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh> the command must be executed in MySQL shell
     
-## Task 1: Install MySQL Enterprise Edition using Generic Linux Tar Image
+## Task 1: Install MySQL Enterprise Edition using Linux RPM's
 
 **Note:** If not already connected with SSH
 - connect to **myclient** instance using Cloud Shell (**Example:** ssh -i ~/.ssh/id_rsa opc@132.145.17….)

@@ -57,26 +57,14 @@ This lab assumes you have:
     ```
 
 
-2.	Start the MySQL daemon 
+## Task 2: Start and test MySQL Enterprise Edition Install
+
+
+1.	Start your new mysql instance
 
  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
     ```
     <copy>sudo systemctl start mysqld</copy>
-    ```
-
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>sudo mkdir /mysql/log /mysql/temp /mysql/binlog</copy>
-    ```
-
-
-## Task 2: Start and test MySQL Enterprise Edition Install
-
-1.	Start your new mysql instance
-
-  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>sudo /mysql/mysql-latest/bin/mysqld --defaults-file=/mysql/etc/my.cnf --user=mysqluser &</copy>
     ```
 
 2.	Verify that process is running
@@ -99,28 +87,21 @@ This lab assumes you have:
     <copy>grep -i ready /mysql/log/err&#95;log.log</copy>
     ```
 
-4. Install the MySQL Shell command line utility
-
-    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-     ```
-    <copy>sudo yum -y install /workshop/shell/mysql-shell-commercial-8.0.28-1.1.el8.x86_64.rpm</copy>
-    ```
-
-5.	Retrieve root password for first login:
+4.	Retrieve root password for first login:
 
   **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
     ```
     <copy>grep -i 'temporary password' /mysql/log/err&#95;log.log</copy>
     ```
 
-6. Login to the the mysql-enterprise installation and check the status (you will be asked to change password)
+5. Login to the the mysql-enterprise installation and check the status (you will be asked to change password)
 
     **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
      ```
     <copy>mysqlsh --uri root@localhost:3306 --sql -p </copy>
     ```
 
-7. Create New Password for MySQL Root
+6. Create New Password for MySQL Root
 
  **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
     ```
@@ -132,15 +113,8 @@ This lab assumes you have:
     <copy>\status</copy>
     ```
 
-8.	Shutdown the service
 
- **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-    ```
-    <copy>\quit</copy>
-    ```
-
-
-9.	Create a new administrative user called 'admin' with remote access and full privileges
+7.	Create a new administrative user called 'admin' with remote access and full privileges
 
  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
     ```
@@ -157,30 +131,6 @@ This lab assumes you have:
     <copy>GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;</copy>
     ```
 
-10.	Add the mysql bin folder to the bash profile
-
- **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-    ```
-    <copy>\quit</copy>
-    ```
-
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>nano /home/opc/.bash&#95;profile</copy>
-    ```
-
-11. After the value  **# User specific environment and startup programs**. Add the following line:
-    ```
-    <copy>PATH=$PATH:/mysql/mysql-latest/bin:$HOME/.local/bin:$HOME/bin</copy>
-    ```
-
-12. Save the changes, log out and log in again via ssh for the changes to take effect on the user profile.  Or you can source the .bash&#95;profile file to update your environment.
-
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-   <copy>source /home/opc/.bash&#95;profile</copy>
-    ```
-
 
 ## Learn More
 
@@ -189,4 +139,4 @@ This lab assumes you have:
 
 ## Acknowledgements
 * **Author** - Dale Dasker, MySQL Solution Engineering
-* **Last Updated By/Date** - <Dale Dasker, April 2022
+* **Last Updated By/Date** - <Dale Dasker, September 2022

@@ -51,28 +51,19 @@ This lab assumes you have:
     ```
   
 
-2. Create a new user/group for your MySQL service (mysqluser/mysqlgrp) and a add ‘mysqlgrp’ group to opc to help labs execution. 
+2. Unzip the installation files:
 
   **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
     ```
-    <copy>sudo groupadd mysqlgrp</copy>
+    <copy>unzip MySQLmysql.zip</copy>
     ```
   
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>sudo useradd -r -g mysqlgrp -s /bin/false mysqluser</copy>
-    ```
-  
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>sudo usermod -a -G mysqlgrp opc</copy>
-    ```
 
-3. Close and reopen shell session or use “newgrp” command as below
+3. Install the RPM's
 
  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
     ```
-    <copy>newgrp - mysqlgrp</copy>
+    <copy>sudo yum install *.rpm</copy>
     ```
 
 

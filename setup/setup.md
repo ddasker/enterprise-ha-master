@@ -134,21 +134,14 @@ This lab assumes you have:
 
     **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
     ```
-    <copy>sudo curl -u vsftp_user:vsftp_Pa33w0rd  -o workshop.tar.gz ftp://129.158.254.37/workshop.tar.gz</copy>
+    <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/75vxdoY5GRZnZkjcRAbRaOYC9se0U5021Lryg3bXFK1b8eNQC6LnyLbODpai0Thv/n/idazzjlcjqzj/b/bucket-20220901-1608-workshop_RPM/o/MySQLmysql.zip</copy>
     ```
     
 4.  Extract workshop files 
 
     **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
     ```
-    <copy>sudo tar xvf workshop.tar.gz </copy>
-    ```
-
-5.  Setup for MySQL Client
-
-    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
-    ```
-    <copy>sudo ln -s /usr/lib64/libtinfo.so.6.1 /usr/lib64/libtinfo.so.5</copy>
+    <copy>unzip  MySQLmysql.zip </copy>
     ```
 
 
@@ -159,4 +152,4 @@ This lab assumes you have:
 
 ## Acknowledgements
 * **Author** - Dale Dasker, MySQL Solution Engineering
-* **Last Updated By/Date** - <Dale Dasker, April 2022
+* **Last Updated By/Date** - <Dale Dasker, September 2022

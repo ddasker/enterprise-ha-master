@@ -125,7 +125,7 @@ This lab assumes you have:
     <copy>mkdir workshop </copy>
     ```
 
-3.  FTP workshop files 
+3.  Wget workshop files 
 
     **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
     ```

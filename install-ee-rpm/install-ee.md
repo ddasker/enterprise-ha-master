@@ -43,31 +43,21 @@ This lab assumes you have:
 
     ![CONNECT](./images/06connect01-signin.png " ")
 
-1. Download the MySQL Enterprise Edition image
 
-  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/75vxdoY5GRZnZkjcRAbRaOYC9se0U5021Lryg3bXFK1b8eNQC6LnyLbODpai0Thv/n/idazzjlcjqzj/b/bucket-20220901-1608-workshop_RPM/o/MySQLmysql.zip</copy>
-    ```
-  
-
-2. Unzip the installation files:
-
-  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>unzip MySQLmysql.zip</copy>
-    ```
-  
-
-3. Install the RPM's
+1. Install the RPM's
 
  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
     ```
-    <copy>sudo yum install *.rpm</copy>
+    <copy>cd ~/workshop</copy>
+    ```
+
+ **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+    ```
+    <copy>sudo yum -y install *.rpm</copy>
     ```
 
 
-4.	Create new directory structure:
+2.	Create new directory structure:
 
  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
     ```

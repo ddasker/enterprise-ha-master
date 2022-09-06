@@ -34,12 +34,12 @@ This lab assumes you have:
 ## Task 1: Install MySQL Enterprise Edition using Linux RPM's
 
 **Note:** If not already connected with SSH
+
 - connect to **myclient** instance using Cloud Shell (**Example:** ssh -i ~/.ssh/id_rsa opc@132.145.17….)
     ```
     <copy>ssh -i ~/.ssh/id_rsa opc@<your_compute_instance_ip></copy>
     ```
     ![CONNECT](./images/06connect01-signin.png " ")
-
 
 1. Download the MySQL Enterprise Edition image
 

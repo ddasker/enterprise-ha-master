@@ -57,11 +57,11 @@ This lab assumes you have:
     ```
 
 
-2.	Create new directory structure:
+2.	Start the MySQL daemon 
 
  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
     ```
-    <copy>sudo mkdir /mysql/ /mysql/etc /mysql/data</copy>
+    <copy>sudo systemctl start mysqld</copy>
     ```
 
  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
@@ -69,59 +69,6 @@ This lab assumes you have:
     <copy>sudo mkdir /mysql/log /mysql/temp /mysql/binlog</copy>
     ```
 
-5.	Extract the tarball in your /mysql folder
-
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>cd /mysql/</copy>
-    ```
-
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
-    ```
-    <copy>sudo tar xvf /workshop/mysql_8.0.28/mysql-commercial-8.0.28-linux-glibc2.12-x86&#95;64.tar.xz</copy>
-    ```
-
-6.	Create a symbolic link to mysql binary installation
-
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>sudo ln -s mysql-commercial-8.0.28-linux-glibc2.12-x86&#95;64 mysql-latest</copy>
-    ```
-
-7.	Create a new configuration file my.cnf inside /mysql/etc
-To help you we created one with some variables, please copy it
-
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>sudo cp /workshop/my.cnf.first /mysql/etc/my.cnf</copy>
-    ```
-
-8.	For security reasons change ownership and permissions
-
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>sudo chown -R mysqluser:mysqlgrp /mysql</copy>
-    ```
-
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>sudo chmod -R 755 /mysql</copy>
-    ```
-
-9. The following permission is for the Lab purpose so that opc account can make changes and copy files to overwrite the content
-
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>sudo chmod -R 770 /mysql/etc</copy>
-    ```
-
-10.	initialize your database
-
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
-
-    ```
-    <copy>sudo /mysql/mysql-latest/bin/mysqld --defaults-file=/mysql/etc/my.cnf --initialize --user=mysqluser</copy>
-    ```
 
 ## Task 2: Start and test MySQL Enterprise Edition Install
 

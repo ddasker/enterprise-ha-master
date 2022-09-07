@@ -66,7 +66,7 @@ This lab assumes you have:
 
 ## Task 2: Create ReplicaSet
 
-1. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 
+1. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 and create ReplicaSet
 
 	a. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
 
@@ -77,21 +77,33 @@ This lab assumes you have:
 	b. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
 
     ```
-    <copy>GRANT ALL PRIVILEGES ON employees.* TO 'appuser2'@'127.0.0.1';</copy>
+    <copy>var rs = dba.createReplicaSet("example")</copy>
     ```
 
-2. Using the Administrative Connection, create another new user and restrict the user to your “Server” IP
+	c. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+
+    ```
+    <copy>rs.status()</copy>
+    ```
+
+2. Add 2 instances to ReplicaSet
 
     a. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
 
     ```
-    <copy>CREATE USER 'appuser3'@'127.0.0.1' IDENTIFIED BY 'Welcome1!';</copy>
+    <copy>rs.addInstance('root@localhost:3320')</copy>
     ```
 
 	b. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
 
     ```
-    <copy>GRANT ALL PRIVILEGES ON employees.* TO 'appuser3'@'127.0.0.1';</copy>
+    <copy>rs.addInstance('root@localhost:3330')</copy>
+    ```
+
+	c. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+
+    ```
+    <copy>rs.status()</copy>
     ```
 
 ## Task 3: Connect to a second mysql-enterprise on Server

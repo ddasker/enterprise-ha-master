@@ -134,7 +134,7 @@ This lab assumes you have:
     <copy>rs.setPrimaryInstance('root@localhost:3310')</copy>
     ```
 
-	d. Check status
+	d. Check status (**Note** You can see extended details by passing the {extended: [1|2} })
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
@@ -142,60 +142,59 @@ This lab assumes you have:
     <copy>rs.status()</copy>
     ```
 
-2. Switch to the administrative connection revoke privilege on city to appuser
 
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+## Task 4: Deploy MySQL Router
 
-    ```
-    <copy>REVOKE SELECT ON employees.* FROM 'appuser1'@'127.0.0.1';</copy>
-    ```
+1.	Close MySQL Shell and create directory for MySQL Router configuration and data
 
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>SHOW GRANTS FOR 'appuser1'@'127.0.0.1';</copy>
-    ```
-3. Repeat the select on appuser connection for the user. There is a difference?
-
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
-
-    ```
-    <copy>SELECT * FROM employees;</copy>
-    ```
-
-## Task 4: Use appuser1 connection
-1.	Close and reopen the appuser1 connection for the user, then repeat above commands. There is a difference? 
-
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
-
-    ```
-    <copy>exit</copy>
+    <copy>\quit</copy>
     ```
 
 	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
 
     ```
-    <copy>mysql -u appuser1 -p -h 127.0.0.1 -P 3306</copy>
+    <copy>mkdir ~/mysqlrouter</copy>
     ```
-	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
 
     ```
-    <copy>USE employees;</copy>
+    <copy>cd ~/mysqlrouter</copy>
     ```
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+
+2.	Bootstrap MySQL Router and Deploy Router against 3310 Instance (Which is now the Source) 
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
     ```
-    <copy>SELECT * FROM employees;</copy>
+    <copy>mysqlrouter --bootstrap root@localhost:3310 -d /home/opc/mysqlrouter</copy>
     ```
-2.	Switch to the administrative connection revoke ‘USAGE’ privilege using and administrative connection and verify (tip: this privilege can’t be revoked…)
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
+    ```
+    <copy>./start.sh &</copy>
+    ```
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
+    ```
+    <copy>ps -ef | grep mysqlrouter</copy>
+    ```
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
+    ```
+    <copy>mysql -P6446 --protocol=tcp -uroot -ppassword</copy>
+    ```
 
 	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
 	```
-	<copy>REVOKE USAGE ON *.* FROM 'appuser1'@'127.0.0.1';</copy>
-	```
-	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
-	```
-	<copy>SHOW GRANTS FOR 'appuser1'@'127.0.0.1';</copy>
-	```
+    <copy>SELECT @@port;</copy>
+    ```
 
 3.	Using the administrative connection revoke all privileges using and administrative connection and verify
 

@@ -110,7 +110,7 @@ This lab assumes you have:
 
 1. Test changing the Primary.  This is good for instances where you want to safely failover to a new Replica
 
-	a. Failover to 3320 instances
+	a. Failover to 3320 instance
     
     **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
 
@@ -126,10 +126,20 @@ This lab assumes you have:
     <copy>rs.status()</copy>
     ```
 
+	c. Failover back to 3310 instance
+    
     **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
 
     ```
-    <copy>SELECT * FROM employees;</copy>
+    <copy>rs.setPrimaryInstance('root@localhost:3310')</copy>
+    ```
+
+	d. Check status
+
+    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+
+    ```
+    <copy>rs.status()</copy>
     ```
 
 2. Switch to the administrative connection revoke privilege on city to appuser

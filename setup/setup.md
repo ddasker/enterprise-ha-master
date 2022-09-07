@@ -89,23 +89,6 @@ This lab assumes you have:
     ```
     <copy>ssh -i id_rsa opc@public_ip </copy>
     ```
-  *Windows:* use “id_rsa.ppk” key file
-
-    1. Open putty
-    2. Insert the public IP of your server and a mnemonic session name
-    ![Image alt text](images/putty-1.png)
-
-    3. Choose "Connection  SSH  Auth" and provide the id_rsa.ppk path
-    ![Image alt text](images/putty-2.png)
-
-    4. Select "Connection  Data" and insert "opc" in "Auto-login username"
-    ![Image alt text](images/putty-3.png)
-
-    5. e)	Choose Connection and insert "60" in "Seconds between keepalives
-    ![Image alt text](images/putty-4.png)
-
-    6. Return to "Session" and click save
-    ![Image alt text](images/putty-5.png)
 
 
 ## Task 5: Setup workshop directory on Server

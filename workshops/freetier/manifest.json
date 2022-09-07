@@ -37,7 +37,7 @@
         },
         {
             "title": "Lab 6: Deploying - InnoDB ReplicaSets",
-            "description": "Deploying - InnoDB ReplicaSets Users",
+            "description": "Deploying - InnoDB ReplicaSets",
             "filename": "../../innodb-replicasets/replicasets.md"
         },
         {

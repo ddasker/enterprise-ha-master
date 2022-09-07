@@ -46,7 +46,7 @@ This lab assumes you have:
 
 2. Create 3 MySQL Sandboxes 
 
-	a. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+	a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>** 
 
     ```
     <copy>dba.deploySandboxInstance(3310, {password: "password"})</copy>

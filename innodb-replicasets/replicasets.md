@@ -1,21 +1,22 @@
-# SECURITY - MYSQL USERS
+# DEPLOYING - InnoDB ReplicaSets
 
 ## Introduction
 
-Users management
-Objective: explore user creation and privileges on a Server 
+InnoDB ReplicaSets
+Objective: deploying MySQL sandboxes and then creating an InnoDB ReplicaSet
 
 
-*This lab walks you through creating some users which will be used to Audit.
+*This lab walks you through creating MySQL Sandboxes, deploying InnoDB ReplicaSets, bootstrapping MySQL Router and testing failovers
 
-Estimated Time: 10 minutes
+Estimated Time: 15 minutes
 
 
 ### Objectives
 
 In this lab, you will  do the followings:
-- Connect to mysql-enterprise
-- Create appuser 
+- Connect to MySQL Shell
+- Create MySQL Sandboxes
+- Create InnoDB ReplicaSet 
 
 ### Prerequisites
 
@@ -35,12 +36,12 @@ This lab assumes you have:
 
 ## Task 1: Connect to mysql-enterprise on Server
 
-1. Connect to your mysql-enterprise with administrative user
+1. Connect to your MySQL Shell
 
    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
 
     ```
-    <copy>mysql -uroot -p -h 127.0.0.1 -P 3306</copy>
+    <copy>mysqlsh</copy>
     ```
 
 2. Create a new user and restrict the user to your “Server” IP

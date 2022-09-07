@@ -203,20 +203,88 @@ This lab assumes you have:
     <copy>SELECT @@port;</copy>
     ```   
 
-4.	Close and reopen appuser session, do you see schemas?
+4.	Kill the Source and force failover
 
-
-
-## Task 5: Restore user privileges
-1.	Using the administrative connection restore user privileges to reuse it in next labs
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	```
+    <copy>dba.stopSandboxInstance(3320)</copy>
+    ```
 
 	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+
+	```
+    <copy>SELECT @@port;</copy>
+    ```   
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	```
+    <copy>shell.connect('root@localhost:3310')</copy>
     ```
-    <copy>GRANT ALL PRIVILEGES ON employees.* TO 'appuser1'@'127.0.0.1';</copy>
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	```
+    <copy>rs = dba.getReplicaSet()</copy>
     ```
 
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	```
+    <copy>rs.forcePrimaryInstance()</copy>
+    ```
+
+	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+
+	```
+    <copy>SELECT @@port;</copy>
+    ```   
 
 
+## Task 5: Clean up environment
+
+1.	Using the MySQL Shell interface, remove the Sandboxes
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+    ```
+    <copy>dba.stopSandboxInstance(3310)</copy>
+    ```
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+    ```
+    <copy>dba.stopSandboxInstance(3330)</copy>
+    ```
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+    ```
+    <copy>dba.deleteSandboxInstance(3310)</copy>
+    ```
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+    ```
+    <copy>dba.deleteSandboxInstance(3320)</copy>
+    ```
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+    ```
+    <copy>dba.deleteSandboxInstance(3330)</copy>
+    ```
+
+2.	Stop MySQL Router and remove the files
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+    ```
+    <copy>dba.stopSandboxInstance(3310)</copy>
+    ```
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
+    ```
+    <copy>./Stop.sh</copy>
+    ```
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
+    ```
+    <copy>rm -Rdf ./*</copy>
+    ```
 
 ## Learn More
 

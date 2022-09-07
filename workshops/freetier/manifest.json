@@ -36,9 +36,9 @@
             "filename": "../../install-verify-ee/install-verify-ee.md"
         },
         {
-            "title": "Lab 6: Security - MySQL Users",
-            "description": "Security - MySQL Users",
-            "filename": "../../security-user/security-user.md"
+            "title": "Lab 6: Deploying - InnoDB ReplicaSets",
+            "description": "Deploying - InnoDB ReplicaSets Users",
+            "filename": "../../innodb-replicasets/replicasets.md"
         },
         {
             "title": "Lab 8: Security - MySQL Enterprise Transparent Data Encryption (TDE)",

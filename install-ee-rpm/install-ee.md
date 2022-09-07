@@ -84,14 +84,14 @@ This lab assumes you have:
 
   **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
     ```
-    <copy>grep -i ready /mysql/log/err&#95;log.log</copy>
+    <copy>sudo grep -i ready /var/log/mysqld.log</copy>
     ```
 
 4.	Retrieve root password for first login:
 
   **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
     ```
-    <copy>grep -i 'temporary password' /mysql/log/err&#95;log.log</copy>
+    <copy>sudo grep -i 'temporary password' /var/log/mysqld.log</copy>
     ```
 
 5. Login to the the mysql-enterprise installation and check the status (you will be asked to change password)
@@ -115,11 +115,6 @@ This lab assumes you have:
 
 
 7.	Create a new administrative user called 'admin' with remote access and full privileges
-
- **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>mysqlsh --sql --uri root@127.0.0.1:3306 -p</copy>
-    ```
 
  **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
     ```

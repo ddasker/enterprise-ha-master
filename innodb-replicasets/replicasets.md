@@ -52,13 +52,13 @@ This lab assumes you have:
     <copy>dba.deploySandboxInstance(3310, {password: "password"})</copy>
     ```
 
-	b. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+    b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>** 
 
     ```
     <copy>dba.deploySandboxInstance(3320, {password: "password"})</copy>
     ```
 
-	c. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>dba.deploySandboxInstance(3330, {password: "password"})</copy>
@@ -68,19 +68,19 @@ This lab assumes you have:
 
 1. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 and create ReplicaSet
 
-	a. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+	a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>\connect 'root@localhost:3310'</copy>
     ```
 
-	b. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>var rs = dba.createReplicaSet("example")</copy>
     ```
 
-	c. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>rs.status()</copy>
@@ -88,19 +88,19 @@ This lab assumes you have:
 
 2. Add 2 instances to ReplicaSet
 
-    a. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+    a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>rs.addInstance('root@localhost:3320')</copy>
     ```
 
-	b. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>rs.addInstance('root@localhost:3330')</copy>
     ```
 
-	c. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>rs.status()</copy>
@@ -112,7 +112,7 @@ This lab assumes you have:
 
 	a. Failover to 3320 instance
     
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>rs.setPrimaryInstance('root@localhost:3320')</copy>
@@ -120,7 +120,7 @@ This lab assumes you have:
 
 	b. Check status
 
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>rs.status()</copy>
@@ -128,7 +128,7 @@ This lab assumes you have:
 
 	c. Failover back to 3310 instance
     
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>rs.setPrimaryInstance('root@localhost:3310')</copy>
@@ -136,7 +136,7 @@ This lab assumes you have:
 
 	d. Check status
 
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>rs.status()</copy>

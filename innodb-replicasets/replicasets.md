@@ -106,23 +106,24 @@ This lab assumes you have:
     <copy>rs.status()</copy>
     ```
 
-## Task 3: Connect to a second mysql-enterprise on Server
+## Task 3: Test failovers
 
-1. Open a new SSH connection on Server and from there connect to mysql-enterprise with appuser1
+1. Test changing the Primary.  This is good for instances where you want to safely failover to a new Replica
 
-	a. connect to mysql-enterprise with appuser1
+	a. Failover to 3320 instances
     
-   **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
 
     ```
-    <copy>mysql -u appuser1 -p -h 127.0.0.1 -P 3306</copy>
+    <copy>rs.setPrimaryInstance('root@localhost:3320')</copy>
     ```
-	b. Run a select on the tables e.g.
+
+	b. Check status
 
     **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
 
     ```
-    <copy>USE employees;</copy>
+    <copy>rs.status()</copy>
     ```
 
     **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 

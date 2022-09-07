@@ -44,34 +44,34 @@ This lab assumes you have:
     <copy>mysqlsh</copy>
     ```
 
-2. Create a new user and restrict the user to your “Server” IP
+2. Create 3 MySQL Sandboxes 
 
 	a. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
 
     ```
-    <copy>CREATE USER 'appuser1'@'127.0.0.1' IDENTIFIED BY 'Welcome1!';</copy>
+    <copy>dba.deploySandboxInstance(3310, {password: "password"})</copy>
     ```
 
 	b. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
 
     ```
-    <copy>GRANT ALL PRIVILEGES ON employees.* TO 'appuser1'@'127.0.0.1';</copy>
+    <copy>dba.deploySandboxInstance(3320, {password: "password"})</copy>
     ```
 
 	c. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
 
     ```
-    <copy>SHOW GRANTS FOR 'appuser1'@'127.0.0.1';</copy>
+    <copy>dba.deploySandboxInstance(3330, {password: "password"})</copy>
     ```
 
-## Task 2: Add additional users
+## Task 2: Create ReplicaSet
 
-1. Using the Administrative Connection, create a new user and restrict the user to your “Server” IP
+1. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 
 
 	a. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
 
     ```
-    <copy>CREATE USER 'appuser2'@'127.0.0.1' IDENTIFIED BY 'Welcome1!';</copy>
+    <copy>\connect 'root@localhost:3310'</copy>
     ```
 
 	b. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 

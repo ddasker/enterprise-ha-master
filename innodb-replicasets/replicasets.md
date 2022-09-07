@@ -145,13 +145,7 @@ This lab assumes you have:
 
 ## Task 4: Deploy MySQL Router
 
-1.	Close MySQL Shell and create directory for MySQL Router configuration and data
-
-    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-
-    ```
-    <copy>\quit</copy>
-    ```
+1.	Create a new SSH Shell window to your Compute Instance and create a directory for MySQL Router configuration and data
 
 	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
 
@@ -196,17 +190,22 @@ This lab assumes you have:
     <copy>SELECT @@port;</copy>
     ```
 
-3.	Using the administrative connection revoke all privileges using and administrative connection and verify
+3.	Failover the Source and check if the Router follows
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	```
+    <copy>rs.setPrimaryInstance('root@localhost:3320')</copy>
+    ```
 
 	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+
 	```
-    <copy>REVOKE ALL PRIVILEGES ON *.* FROM 'appuser1'@'127.0.0.1';</copy>
-    ```
-	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
-	```
-    <copy>SHOW GRANTS FOR 'appuser1'@'127.0.0.1';</copy>
+    <copy>SELECT @@port;</copy>
     ```   
+
 4.	Close and reopen appuser session, do you see schemas?
+
+
 
 ## Task 5: Restore user privileges
 1.	Using the administrative connection restore user privileges to reuse it in next labs

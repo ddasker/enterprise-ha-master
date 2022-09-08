@@ -105,33 +105,33 @@ This lab assumes you have:
 	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>var rs = dba.createReplicaSet("example")</copy>
+    <copy>var cluster = dba.createCluster("testCluster")</copy>
     ```
 
 	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>rs.status()</copy>
+    <copy>cluster.status()</copy>
     ```
 
-2. Add 2 instances to ReplicaSet
+2. Add 2 instances to InnoDB Cluster
 
     a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>rs.addInstance('root@localhost:3320')</copy>
+    <copy>cluster.addInstance('root@localhost:3320')</copy>
     ```
 
 	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>rs.addInstance('root@localhost:3330')</copy>
+    <copy>cluster.addInstance('root@localhost:3330')</copy>
     ```
 
 	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>rs.status()</copy>
+    <copy>cluster.status()</copy>
     ```
 
 ## Task 3: Test failovers

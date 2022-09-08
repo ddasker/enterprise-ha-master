@@ -134,6 +134,48 @@ This lab assumes you have:
     <copy>cluster.status()</copy>
     ```
 
+	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>\connect root@localhost:3320</copy>
+    ```
+
+	e. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>\sql</copy>
+    ```
+
+	f. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>SHOW DATABASES;</copy>
+    ```
+
+	g. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>USE world;</copy>
+    ```
+
+	h. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>SHOW TABLES;</copy>
+    ```
+
+	i. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>\js</copy>
+    ```
+
+	j. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>\connect root@localhost:3310</copy>
+    ```
+
 ## Task 3: Test failovers
 
 1. Test changing the Primary.  This is good for instances where you want to safely failover to a new Replica

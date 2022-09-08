@@ -71,7 +71,7 @@ This lab assumes you have:
 	a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>\connect 'root@localhost:3310'</copy>
+    <copy>\connect root@localhost:3310</copy>
     ```
 
 	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
@@ -269,15 +269,10 @@ This lab assumes you have:
 
 2.	Stop MySQL Router and remove the files
 
-    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-    ```
-    <copy>dba.stopSandboxInstance(3310)</copy>
-    ```
-
-	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
 
     ```
-    <copy>./Stop.sh</copy>
+    <copy>./stop.sh</copy>
     ```
 
 	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 

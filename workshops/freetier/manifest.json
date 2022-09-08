@@ -41,6 +41,11 @@
             "filename": "../../innodb-replicasets/replicasets.md"
         },
         {
+            "title": "Lab 7: Deploying - InnoDB Clusters",
+            "description": "Deploying - InnoDB Clusters",
+            "filename": "../../innodb-clusters/innodbcluster.md"
+        },
+        {
             "title": "Lab 8: Security - MySQL Enterprise Transparent Data Encryption (TDE)",
             "description": "Security - MySQL Enterprise Transparent Data Encryption (TDE)",
             "filename": "../../security-tde/security-tde.md"

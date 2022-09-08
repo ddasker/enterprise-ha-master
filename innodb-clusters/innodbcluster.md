@@ -64,9 +64,37 @@ This lab assumes you have:
     <copy>dba.deploySandboxInstance(3330, {password: "password"})</copy>
     ```
 
-## Task 2: Create ReplicaSet
+	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
-1. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 and create ReplicaSet
+    ```
+    <copy>\quit</copy>
+    ```
+
+    e.	Load some sample data
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
+    ```
+    <copy>mysql -P3310 --protocol=tcp -uroot -ppassword -e"CREATE DATABASE world"</copy>
+    ```
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
+    ```
+    <copy>mysql -P3310 --protocol=tcp -uroot -ppassword world < world_innodb.sql</copy>
+    ```
+
+## Task 2: Create InnoDB Cluster 
+
+1. Connect to your MySQL Shell
+
+   **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
+    ```
+    <copy>mysqlsh</copy>
+    ```
+
+2. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 and create InnoDB Cluster
 
 	a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 

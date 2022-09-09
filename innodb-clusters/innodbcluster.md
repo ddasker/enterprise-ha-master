@@ -185,7 +185,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>rs.setPrimaryInstance('root@localhost:3320')</copy>
+    <copy>cluster.setPrimaryInstance("root@localhost:3320")</copy>
     ```
 
 	b. Check status
@@ -193,7 +193,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>rs.status()</copy>
+    <copy>cluster.status()</copy>
     ```
 
 	c. Failover back to 3310 instance
@@ -201,7 +201,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>rs.setPrimaryInstance('root@localhost:3310')</copy>
+    <copy>cluster.setPrimaryInstance("root@localhost:3310")</copy>
     ```
 
 	d. Check status (**Note** You can see extended details by passing the {extended: [1|2} })
@@ -209,7 +209,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>rs.status()</copy>
+    <copy>cluster.status()</copy>
     ```
 
 

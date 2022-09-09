@@ -1,19 +1,24 @@
-# SECURITY - MYSQL ENTERPRISE TRANSPARENT DATA ENCRYPTION
+# DEPLOYING - InnoDB ClusterSets
 
 ## Introduction
-3c) MySQL Enterprise Transparent Data Encryption
-Objective: Data Encryption in action…
 
-This lab will walk you through encrypting InnoDB Tablespace files at rest
+InnoDB ClusterSets:
+Objective: deploying MySQL sandboxes and then creating an InnoDB ClusterSets
 
-Estimated Lab Time: 20 minutes
+
+*This lab walks you through creating MySQL Sandboxes, deploying InnoDB ClusterSets, bootstrapping MySQL Router and testing failovers
+
+Estimated Time: 15 minutes
+
 
 ### Objectives
 
-In this lab, you will:
-* Install and encrypt Data Files
+In this lab, you will  do the followings:
+- Connect to MySQL Shell
+- Create MySQL Sandboxes
+- Create InnoDB ClusterSets 
 
-### Prerequisites (Optional)
+### Prerequisites
 
 This lab assumes you have:
 * An Oracle account
@@ -24,136 +29,283 @@ This lab assumes you have:
     - ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql> the command must be executed in a client like MySQL, MySQL Workbench
     - ![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh> the command must be executed in MySQL shell
     
-
 **Notes:**
-- References
-- [InnoDB Data At Rest](https://dev.mysql.com/doc/refman/8.0/en/innodb-data-encryption.html)
+- Open a notepad file and  your linux Private IP on student###-serverA 
 
+- serverA  PRIVATE ip: (client_ip)
 
-## Task 1: Install and setup TDE  
-1.	Install MySQL Enterprise Transparent Data Encrytption on mysql-enterprise using Administrative MySQL client connections 
+## Task 1: Connect to mysql-enterprise on Server
 
-    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+1. Connect to your MySQL Shell
+
+   **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
     ```
-    <copy>mysql -u root -p -P3306 -h127.0.0.1 </copy>
-    ```
-2.	Check to see if any keyring plugin is installed and load if not:
-
-    a. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
-    ```
-    <copy>SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE PLUGIN_NAME LIKE 'keyring%'; </copy>
+    <copy>mysqlsh</copy>
     ```
 
-    b. Edit the my.cnf setting in /mysql/etc/my.cnf
+2. Create 3 MySQL Sandboxes 
 
-    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
-    ```
-    <copy>sudo nano /mysql/etc/my.cnf</copy>
-    ```
-    b. Add the following lines to load the plugin and set the encrypted key file
+	a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>** 
 
-    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
     ```
-    <copy>early-plugin-load=keyring_encrypted_file.so</copy>    
-    ```
-    ```
-    <copy>keyring_encrypted_file_data=/mysql/data/mysql-keyring/keyring-encrypted</copy>    
-    ```
-    ```
-    <copy>keyring_encrypted_file_password=V&rySec4eT</copy>    
+    <copy>dba.deploySandboxInstance(3310, {password: "password"})</copy>
     ```
 
-    c. Restart MySQL
+    b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>** 
 
-    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
     ```
-    <copy>mysqladmin -uroot -p -h 127.0.0.1 -P3306 shutdown</copy>
-    ```
-     **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
-    ```
-    <copy>sudo /mysql/mysql-latest/bin/mysqld --defaults-file=/mysql/etc/my.cnf $MYSQLD_OPTS &</copy>
+    <copy>dba.deploySandboxInstance(3320, {password: "password"})</copy>
     ```
 
+	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
-3.	"Spy" on employees.employees table
-
-    a. **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
     ```
-    <copy>strings "/mysql/data/employees/employees.ibd" | head -n50</copy>
+    <copy>dba.deploySandboxInstance(3330, {password: "password"})</copy>
     ```
 
+	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
-4.	Now we enable Encryption on the employees.employees table:
-
-    a.  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
     ```
-    <copy>mysql -u root -p -P3306 -h127.0.0.1 </copy>
+    <copy>\quit</copy>
     ```
 
-    b. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+    e.	Load some sample data
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
     ```
-    <copy>USE employees;</copy>
+    <copy>mysql -P3310 --protocol=tcp -uroot -ppassword -e"CREATE DATABASE world"</copy>
     ```
 
-    c. **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
     ```
-    <copy>ALTER TABLE employees ENCRYPTION = 'Y';</copy>
+    <copy>mysql -P3310 --protocol=tcp -uroot -ppassword world < world_innodb.sql</copy>
+    ```
+
+## Task 2: Create InnoDB Cluster 
+
+1. Connect to your MySQL Shell
+
+   **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
+    ```
+    <copy>mysqlsh</copy>
+    ```
+
+2. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 and create InnoDB Cluster
+
+	a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>\connect root@localhost:3310</copy>
+    ```
+
+	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>var cluster = dba.createCluster("testCluster")</copy>
+    ```
+
+	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>cluster.status()</copy>
+    ```
+
+2. Add 2 instances to InnoDB Cluster
+
+    a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>cluster.addInstance('root@localhost:3320')</copy>
+    ```
+
+	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>cluster.addInstance('root@localhost:3330')</copy>
+    ```
+
+	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>cluster.status()</copy>
+    ```
+
+	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>\connect root@localhost:3320</copy>
+    ```
+
+	e. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>\sql</copy>
+    ```
+
+	f. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>SHOW DATABASES;</copy>
+    ```
+
+	g. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>USE world;</copy>
+    ```
+
+	h. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>SHOW TABLES;</copy>
+    ```
+
+	i. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>\js</copy>
+    ```
+
+	j. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>\connect root@localhost:3310</copy>
+    ```
+
+## Task 3: Test failovers
+
+1. Test changing the Primary.  This is good for instances where you want to safely failover to a new Replica
+
+	a. Failover to 3320 instance
+    
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>cluster.setPrimaryInstance("root@localhost:3320")</copy>
+    ```
+
+	b. Check status
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>cluster.status()</copy>
+    ```
+
+	c. Failover back to 3310 instance
+    
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>cluster.setPrimaryInstance("root@localhost:3310")</copy>
+    ```
+
+	d. Check status (**Note** You can see extended details by passing the {extended: [1|2} })
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>cluster.status()</copy>
     ```
 
 
-5.	"Spy" on employees.employees table again:
+## Task 4: Deploy MySQL Router
 
-    a. **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
+1.	Create a new SSH Shell window to your Compute Instance and create a directory for MySQL Router configuration and data
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
     ```
-    <copy>strings "/mysql/data/employees/employees.ibd" | head -n50</copy>
-    ```
-
-
-6.	Administrative commands
-
-    a. Get details on encrypted key file:
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
-    ```
-    <copy>SHOW VARIABLES LIKE 'keyring_encrypted_file_data'\G</copy>
+    <copy>mkdir ~/mysqlrouter</copy>
     ```
 
-    b. Set default for all tables to be encrypted when creating them:
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
     ```
-    <copy>SET GLOBAL default_table_encryption=ON;</copy>
+    <copy>cd ~/mysqlrouter</copy>
     ```
 
-    c. Peek on the mysql System Tables:
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+2.	Bootstrap MySQL Router and Deploy Router against 3310 Instance (Which is now the Source) 
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
     ```
-    <copy>strings "/mysql/data/mysql.ibd" | head -n70</copy>
+    <copy>mysqlrouter --bootstrap root@localhost:3310 -d /home/opc/mysqlrouter</copy>
     ```
 
-    d. Encrypt the mysql System Tables:
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
     ```
-    <copy>ALTER TABLESPACE mysql ENCRYPTION = 'Y';</copy>
+    <copy>./start.sh &</copy>
     ```
 
-    e. Validate encryption of the mysql System Tables:
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
     ```
-    <copy>strings "/mysql/data/mysql.ibd" | head -n70</copy>
+    <copy>ps -ef | grep mysqlrouter</copy>
     ```
 
-    f. Show all the encrypted tables:
-    **![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>** 
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
     ```
-    <copy>SELECT SPACE, NAME, SPACE_TYPE, ENCRYPTION FROM INFORMATION_SCHEMA.INNODB_TABLESPACES WHERE ENCRYPTION='Y'\G</copy>
+    <copy>mysql -P6446 --protocol=tcp -uroot -ppassword</copy>
     ```
+
+	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+	```
+    <copy>SELECT @@port;</copy>
+    ```
+
+3.	Failover the Source and check if the Router follows
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	```
+    <copy>dba.setPrimaryInstance('root@localhost:3320')</copy>
+    ```
+
+	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+
+	```
+    <copy>SELECT @@port;</copy>
+    ```   
+
+4.	Kill the Source and force failover
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	```
+    <copy>dba.stopSandboxInstance(3320)</copy>
+    ```
+
+	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+
+	```
+    <copy>SELECT @@port;</copy>
+    ```   
+
+5.	Restart the Secondary (3320)
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	```
+    <copy>dba.startSandboxInstance(3320)</copy>
+    ```
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>cluster.status()</copy>
+    ```
+
 
 
 ## Learn More
 
-* [Keyring Plugins](https://dev.mysql.com/doc/refman/8.0/en/keyring.html)
-* [InnoDB Data At Rest](https://dev.mysql.com/doc/refman/8.0/en/innodb-data-encryption.html)
+* [CREATE USER](https://dev.mysql.com/doc/refman/8.0/en/create-user.html)
+* [MySQL Access Control Lists](https://dev.mysql.com/doc/refman/8.0/en/access-control.html)
 
 ## Acknowledgements
 * **Author** - Dale Dasker, MySQL Solution Engineering
-* **Contributors** -  
-* **Last Updated By/Date** - <Dale Dasker, March 2022
+

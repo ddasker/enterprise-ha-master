@@ -264,7 +264,7 @@ This lab assumes you have:
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>rs.setPrimaryInstance('root@localhost:3320')</copy>
+    <copy>dba.setPrimaryInstance('root@localhost:3320')</copy>
     ```
 
 	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
@@ -286,26 +286,18 @@ This lab assumes you have:
     <copy>SELECT @@port;</copy>
     ```   
 
-    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-	```
-    <copy>shell.connect('root@localhost:3310')</copy>
-    ```
+5.	Restart the Secondary (3320)
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>rs = dba.getReplicaSet()</copy>
+    <copy>dba.startSandboxInstance(3320)</copy>
     ```
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-	```
-    <copy>rs.forcePrimaryInstance()</copy>
+
     ```
-
-	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
-
-	```
-    <copy>SELECT @@port;</copy>
-    ```   
+    <copy>cluster.status()</copy>
+    ```
 
 
 ## Task 5: Clean up environment

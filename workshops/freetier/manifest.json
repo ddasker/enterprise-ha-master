@@ -46,9 +46,9 @@
             "filename": "../../innodb-clusters/innodbcluster.md"
         },
         {
-            "title": "Lab 8: Security - MySQL Enterprise Transparent Data Encryption (TDE)",
-            "description": "Security - MySQL Enterprise Transparent Data Encryption (TDE)",
-            "filename": "../../security-tde/security-tde.md"
+            "title": "Lab 8: Deploying - InnoDB ClusterSets",
+            "description": "Deploying - InnoDB ClusterSets",
+            "filename": "../../innodb-clustersets/innodbclustersets.md"
         },
         {
             "title": "Lab 9: Addemdum",

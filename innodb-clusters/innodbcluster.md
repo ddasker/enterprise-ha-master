@@ -1,12 +1,12 @@
-# DEPLOYING - InnoDB ReplicaSets
+# DEPLOYING - InnoDB Cluster
 
 ## Introduction
 
-InnoDB ReplicaSets
-Objective: deploying MySQL sandboxes and then creating an InnoDB ReplicaSet
+InnoDB Cluster:
+Objective: deploying MySQL sandboxes and then creating an InnoDB Cluster
 
 
-*This lab walks you through creating MySQL Sandboxes, deploying InnoDB ReplicaSets, bootstrapping MySQL Router and testing failovers
+*This lab walks you through creating MySQL Sandboxes, deploying InnoDB Cluster, bootstrapping MySQL Router and testing failovers
 
 Estimated Time: 15 minutes
 
@@ -16,7 +16,7 @@ Estimated Time: 15 minutes
 In this lab, you will  do the followings:
 - Connect to MySQL Shell
 - Create MySQL Sandboxes
-- Create InnoDB ReplicaSet 
+- Create InnoDB Cluster 
 
 ### Prerequisites
 

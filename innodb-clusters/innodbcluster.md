@@ -300,48 +300,6 @@ This lab assumes you have:
     ```
 
 
-## Task 5: Clean up environment
-
-1.	Using the MySQL Shell interface, remove the Sandboxes
-
-    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-    ```
-    <copy>dba.stopSandboxInstance(3310)</copy>
-    ```
-
-    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-    ```
-    <copy>dba.stopSandboxInstance(3330)</copy>
-    ```
-
-    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-    ```
-    <copy>dba.deleteSandboxInstance(3310)</copy>
-    ```
-
-    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-    ```
-    <copy>dba.deleteSandboxInstance(3320)</copy>
-    ```
-
-    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-    ```
-    <copy>dba.deleteSandboxInstance(3330)</copy>
-    ```
-
-2.	Stop MySQL Router and remove the files
-
-    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-
-    ```
-    <copy>./stop.sh</copy>
-    ```
-
-	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-
-    ```
-    <copy>rm -Rdf ./*</copy>
-    ```
 
 ## Learn More
 

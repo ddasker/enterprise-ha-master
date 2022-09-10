@@ -48,7 +48,7 @@
         {
             "title": "Lab 8: Deploying - InnoDB ClusterSets",
             "description": "Deploying - InnoDB ClusterSets",
-            "filename": "../../innodb-clustersets/innodbclustersets.md"
+            "filename": "../../security-masking/security-masking.md"
         },
         {
             "title": "Lab 9: Addemdum",

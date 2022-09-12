@@ -44,24 +44,24 @@ This lab assumes you have:
     <copy>mysqlsh</copy>
     ```
 
-2. Create 3 MySQL Sandboxes 
+2. Create 3 Additional MySQL Sandboxes 
 
 	a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>** 
 
     ```
-    <copy>dba.deploySandboxInstance(3310, {password: "password"})</copy>
+    <copy>dba.deploySandboxInstance(3410, {password: "password"})</copy>
     ```
 
     b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>** 
 
     ```
-    <copy>dba.deploySandboxInstance(3320, {password: "password"})</copy>
+    <copy>dba.deploySandboxInstance(3420, {password: "password"})</copy>
     ```
 
 	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>dba.deploySandboxInstance(3330, {password: "password"})</copy>
+    <copy>dba.deploySandboxInstance(3430, {password: "password"})</copy>
     ```
 
 	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
@@ -70,21 +70,7 @@ This lab assumes you have:
     <copy>\quit</copy>
     ```
 
-    e.	Load some sample data
-
-	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-
-    ```
-    <copy>mysql -P3310 --protocol=tcp -uroot -ppassword -e"CREATE DATABASE world"</copy>
-    ```
-
-	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-
-    ```
-    <copy>mysql -P3310 --protocol=tcp -uroot -ppassword world < world_innodb.sql</copy>
-    ```
-
-## Task 2: Create InnoDB Cluster 
+## Task 2: Create an InnoDB ClusterSet 
 
 1. Connect to your MySQL Shell
 
@@ -94,7 +80,7 @@ This lab assumes you have:
     <copy>mysqlsh</copy>
     ```
 
-2. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 and create InnoDB Cluster
+2. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 and create ClusterSet
 
 	a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
@@ -105,13 +91,25 @@ This lab assumes you have:
 	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>var cluster = dba.createCluster("testCluster")</copy>
+    <copy>var cluster = dba.getCluster()</copy>
     ```
 
 	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>cluster.status()</copy>
+    ```
+
+	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>myclusterset = cluster.createClusterSet("testClusterset")</copy>
+    ```
+
+	e. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>myclusterset.status()</copy>
     ```
 
 2. Add 2 instances to InnoDB Cluster

@@ -80,7 +80,7 @@ This lab assumes you have:
     <copy>mysqlsh</copy>
     ```
 
-2. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 and create ClusterSet
+2. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 and create ClusterSet starting with 3410 Instance
 
 	a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
@@ -107,6 +107,24 @@ This lab assumes you have:
     ```
 
 	e. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>myclusterset.status()</copy>
+    ```
+
+	f. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>cluster2 = myclusterset.createReplicaCluster("127.0.0.1:3410","clustertwo")</copy>
+    ```
+
+	g. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>cluster2.status()copy>
+    ```
+
+	h. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>myclusterset.status()</copy>

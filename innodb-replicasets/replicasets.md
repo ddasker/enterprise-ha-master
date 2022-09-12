@@ -207,7 +207,7 @@ This lab assumes you have:
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>dba.stopSandboxInstance(3320)</copy>
+    <copy>dba.stopSandboxInstance(3320, {password: "password"})</copy>
     ```
 
 	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
@@ -244,12 +244,12 @@ This lab assumes you have:
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
     ```
-    <copy>dba.stopSandboxInstance(3310)</copy>
+    <copy>dba.stopSandboxInstance(3310, {password: "password"})</copy>
     ```
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
     ```
-    <copy>dba.stopSandboxInstance(3330)</copy>
+    <copy>dba.stopSandboxInstance(3330, {password: "password"})</copy>
     ```
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**

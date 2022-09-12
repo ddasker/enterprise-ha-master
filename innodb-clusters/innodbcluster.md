@@ -299,6 +299,21 @@ This lab assumes you have:
     <copy>cluster.status()</copy>
     ```
 
+## Task 5: Clean up environment
+
+1.	Stop MySQL Router and remove the files
+
+    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
+    ```
+    <copy>./stop.sh</copy>
+    ```
+
+	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
+
+    ```
+    <copy>rm -Rdf ./*</copy>
+    ```
 
 
 ## Learn More

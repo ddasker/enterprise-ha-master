@@ -153,7 +153,7 @@ This lab assumes you have:
 	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>\connect root@localhost:3320</copy>
+    <copy>\connect root@localhost:3410</copy>
     ```
 
 	e. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**

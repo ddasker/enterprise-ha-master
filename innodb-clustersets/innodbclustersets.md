@@ -130,24 +130,24 @@ This lab assumes you have:
     <copy>myclusterset.status()</copy>
     ```
 
-2. Add 2 instances to InnoDB Cluster
+2. Add 2 instances to Secondary (Replica) InnoDB Cluster
 
     a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.addInstance('root@localhost:3320')</copy>
+    <copy>cluster2.addInstance('root@localhost:3420')</copy>
     ```
 
 	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.addInstance('root@localhost:3330')</copy>
+    <copy>cluster2.addInstance('root@localhost:3430')</copy>
     ```
 
 	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.status()</copy>
+    <copy>cluster2.status()</copy>
     ```
 
 	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**

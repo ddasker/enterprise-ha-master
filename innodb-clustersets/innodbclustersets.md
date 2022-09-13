@@ -107,7 +107,7 @@ This lab assumes you have:
 	g. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster2.status()<copy>
+    <copy>cluster2.status()</copy>
     ```
 
 	h. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**

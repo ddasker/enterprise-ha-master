@@ -222,12 +222,6 @@ This lab assumes you have:
 	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
 
     ```
-    <copy>mkdir ~/mysqlrouter</copy>
-    ```
-
-	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-
-    ```
     <copy>cd ~/mysqlrouter</copy>
     ```
 
@@ -236,7 +230,7 @@ This lab assumes you have:
 	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
 
     ```
-    <copy>mysqlrouter --bootstrap root@localhost:3310 -d /home/opc/mysqlrouter</copy>
+    <copy>mysqlrouter --bootstrap root@localhost:3310 -d /home/opc/mysqlrouter -name "Portland"</copy>
     ```
 
 	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
@@ -262,11 +256,26 @@ This lab assumes you have:
     <copy>SELECT @@port;</copy>
     ```
 
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+    ```
+    <copy>myclusterset.listRouters()</copy>
+    ```
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+    ```
+    <copy>myclusterset.routingOptions()</copy>
+    ```
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+    ```
+    <copy>myclusterset.describe()</copy>
+    ```
+
 3.	Failover the Source and check if the Router follows
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>dba.setPrimaryInstance('root@localhost:3320')</copy>
+    <copy>cluster.setPrimaryInstance('root@localhost:3320')</copy>
     ```
 
 	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
@@ -275,17 +284,26 @@ This lab assumes you have:
     <copy>SELECT @@port;</copy>
     ```   
 
-4.	Kill the Source and force failover
+4.	Failover to the Replica Cluster
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>dba.stopSandboxInstance(3320)</copy>
+    <copy>myclusterset.setPrimaryCluster('clustertwo')</copy>
     ```
 
 	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
-
 	```
     <copy>SELECT @@port;</copy>
+    ```   
+
+	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+	```
+    <copy>\connect root@localhost:3420</copy>
+    ```   
+
+	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+	```
+    <copy>myclusterset.status()</copy>
     ```   
 
 5.	Restart the Secondary (3320)

@@ -117,7 +117,7 @@ This lab assumes you have:
 
     **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
     ```
-    <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/75vxdoY5GRZnZkjcRAbRaOYC9se0U5021Lryg3bXFK1b8eNQC6LnyLbODpai0Thv/n/idazzjlcjqzj/b/bucket-20220901-1608-workshop_RPM/o/MySQLmysql.zip</copy>
+    <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/Vvqk4JQuFkaX6EKfvEfmA8KkK6FdMoQVJI7E3b6cyUT9Jy43eOcZNGBhVGmZMlZU/n/idazzjlcjqzj/b/bucket-20220901-1608-workshop_RPM/o/workshop.zip</copy>
     ```
     
 4.  Extract workshop files 

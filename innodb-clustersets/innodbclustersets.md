@@ -64,23 +64,9 @@ This lab assumes you have:
     <copy>dba.deploySandboxInstance(3430, {password: "password"})</copy>
     ```
 
-	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-
-    ```
-    <copy>\quit</copy>
-    ```
-
 ## Task 2: Create an InnoDB ClusterSet 
 
-1. Connect to your MySQL Shell
-
-   **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-
-    ```
-    <copy>mysqlsh</copy>
-    ```
-
-2. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 and create ClusterSet starting with 3410 Instance
+1. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 and create ClusterSet starting with 3410 Instance
 
 	a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 

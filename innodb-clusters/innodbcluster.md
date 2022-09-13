@@ -264,7 +264,7 @@ This lab assumes you have:
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>dba.setPrimaryInstance('root@localhost:3320')</copy>
+    <copy>cluster.setPrimaryInstance('root@localhost:3320')</copy>
     ```
 
 	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
@@ -277,7 +277,7 @@ This lab assumes you have:
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>dba.stopSandboxInstance(3320)</copy>
+    <copy>dba.stopSandboxInstance(3320, {password: "password"})</copy>
     ```
 
 	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**

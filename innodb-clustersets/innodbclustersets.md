@@ -89,7 +89,7 @@ This lab assumes you have:
 	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>myclusterset = cluster.createClusterSet("testClusterset")</copy>
+    <copy>myclusterset = cluster.createClusterSet("PortlandSet")</copy>
     ```
 
 	e. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
@@ -230,7 +230,7 @@ This lab assumes you have:
 	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
 
     ```
-    <copy>mysqlrouter --bootstrap root@localhost:3310 -d /home/opc/mysqlrouter -name "Portland"</copy>
+    <copy>mysqlrouter --bootstrap root@localhost:3310 -d /home/opc/mysqlrouter --name='Portland'</copy>
     ```
 
 	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 

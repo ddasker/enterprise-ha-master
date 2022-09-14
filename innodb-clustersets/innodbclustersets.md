@@ -284,6 +284,11 @@ This lab assumes you have:
     <copy>SELECT @@port;</copy>
     ```   
 
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	```
+    <copy>cluster.setPrimaryInstance('root@localhost:3310')</copy>
+    ```
+
 4.	Failover to the Replica Cluster
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
@@ -296,17 +301,17 @@ This lab assumes you have:
     <copy>SELECT @@port;</copy>
     ```   
 
-	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
     <copy>\connect root@localhost:3420</copy>
     ```   
 
-	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
     <copy>myclusterset.status()</copy>
     ```   
 
-5.	Restart the Secondary (3320)
+5.	***** STILL WORKING ON THIS.  STOP HERE *******Restart the Secondary (3320)
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```

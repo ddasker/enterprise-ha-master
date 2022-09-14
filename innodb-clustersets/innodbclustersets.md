@@ -24,6 +24,10 @@ This lab assumes you have:
 * An Oracle account
 * All previous labs successfully completed
 
+### MySQL Instances ports
+* "Portland": 3310, 3320, 3330
+* "Seattle": 3410, 3420, 3430
+
 * Lab standard  
     - ![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell> the command must be executed in the Operating System shell
     - ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql> the command must be executed in a client like MySQL, MySQL Workbench
@@ -77,43 +81,43 @@ This lab assumes you have:
 	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>var cluster = dba.getCluster()</copy>
+    <copy>var PortlandCluster = dba.getCluster()</copy>
     ```
 
 	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.status()</copy>
+    <copy>PortlandCluster.status()</copy>
     ```
 
 	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>myclusterset = cluster.createClusterSet("PortlandSet")</copy>
+    <copy>NWClusterSet = PortlandCluster.createClusterSet("PortlandSet")</copy>
     ```
 
 	e. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>myclusterset.status()</copy>
+    <copy>NWClusterSet.status()</copy>
     ```
 
 	f. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster2 = myclusterset.createReplicaCluster("127.0.0.1:3410","clustertwo")</copy>
+    <copy>SeattleCluster = NWClusterSet.createReplicaCluster("127.0.0.1:3410","SeattleCluster")</copy>
     ```
 
 	g. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster2.status()</copy>
+    <copy>SeattleCluster.status()</copy>
     ```
 
 	h. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>myclusterset.status()</copy>
+    <copy>NWClusterSet.status()</copy>
     ```
 
 2. Add 2 instances to Secondary (Replica) InnoDB Cluster
@@ -121,19 +125,19 @@ This lab assumes you have:
     a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster2.addInstance('root@localhost:3420')</copy>
+    <copy>SeattleCluster.addInstance('root@localhost:3420')</copy>
     ```
 
 	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster2.addInstance('root@localhost:3430')</copy>
+    <copy>SeattleCluster.addInstance('root@localhost:3430')</copy>
     ```
 
 	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster2.status()</copy>
+    <copy>SeattleCluster.status()</copy>
     ```
 
 	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
@@ -187,7 +191,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.setPrimaryInstance("root@localhost:3320")</copy>
+    <copy>PortlandCluster.setPrimaryInstance("root@localhost:3320")</copy>
     ```
 
 	b. Check status
@@ -195,7 +199,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.status()</copy>
+    <copy>PortlandCluster.status()</copy>
     ```
 
 	c. Failover back to 3310 instance
@@ -203,7 +207,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.setPrimaryInstance("root@localhost:3310")</copy>
+    <copy>PortlandCluster.setPrimaryInstance("root@localhost:3310")</copy>
     ```
 
 	d. Check status (**Note** You can see extended details by passing the {extended: [1|2} })
@@ -211,7 +215,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.status()</copy>
+    <copy>PortlandCluster.status()</copy>
     ```
 
 
@@ -258,24 +262,24 @@ This lab assumes you have:
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
     ```
-    <copy>myclusterset.listRouters()</copy>
+    <copy>NWClusterSet.listRouters()</copy>
     ```
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
     ```
-    <copy>myclusterset.routingOptions()</copy>
+    <copy>NWClusterSet.routingOptions()</copy>
     ```
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
     ```
-    <copy>myclusterset.describe()</copy>
+    <copy>NWClusterSet.describe()</copy>
     ```
 
 3.	Failover the Source and check if the Router follows
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>cluster.setPrimaryInstance('root@localhost:3320')</copy>
+    <copy>PortlandCluster.setPrimaryInstance('root@localhost:3320')</copy>
     ```
 
 	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
@@ -286,14 +290,14 @@ This lab assumes you have:
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>cluster.setPrimaryInstance('root@localhost:3310')</copy>
+    <copy>PortlandCluster.setPrimaryInstance('root@localhost:3310')</copy>
     ```
 
 4.	Failover to the Replica Cluster
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>myclusterset.setPrimaryCluster('clustertwo')</copy>
+    <copy>NWClusterSet.setPrimaryCluster('clustertwo')</copy>
     ```
 
 	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**

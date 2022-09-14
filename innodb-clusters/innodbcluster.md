@@ -24,6 +24,9 @@ This lab assumes you have:
 * An Oracle account
 * All previous labs successfully completed
 
+### MySQL Instances ports
+* "Portland": 3310, 3320, 3330
+
 * Lab standard  
     - ![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell> the command must be executed in the Operating System shell
     - ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql> the command must be executed in a client like MySQL, MySQL Workbench
@@ -105,13 +108,13 @@ This lab assumes you have:
 	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>var cluster = dba.createCluster("testCluster")</copy>
+    <copy>var PortlandCluster = dba.createCluster("PortlandCluster")</copy>
     ```
 
 	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.status()</copy>
+    <copy>PortlandCluster.status()</copy>
     ```
 
 2. Add 2 instances to InnoDB Cluster
@@ -119,19 +122,19 @@ This lab assumes you have:
     a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.addInstance('root@localhost:3320')</copy>
+    <copy>PortlandCluster.addInstance('root@localhost:3320')</copy>
     ```
 
 	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.addInstance('root@localhost:3330')</copy>
+    <copy>PortlandCluster.addInstance('root@localhost:3330')</copy>
     ```
 
 	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.status()</copy>
+    <copy>PortlandCluster.status()</copy>
     ```
 
 	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
@@ -185,7 +188,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.setPrimaryInstance("root@localhost:3320")</copy>
+    <copy>PortlandCluster.setPrimaryInstance("root@localhost:3320")</copy>
     ```
 
 	b. Check status
@@ -193,7 +196,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.status()</copy>
+    <copy>PortlandCluster.status()</copy>
     ```
 
 	c. Failover back to 3310 instance
@@ -201,7 +204,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.setPrimaryInstance("root@localhost:3310")</copy>
+    <copy>PortlandCluster.setPrimaryInstance("root@localhost:3310")</copy>
     ```
 
 	d. Check status (**Note** You can see extended details by passing the {extended: [1|2} })
@@ -209,7 +212,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.status()</copy>
+    <copy>PortlandCluster.status()</copy>
     ```
 
 
@@ -264,7 +267,7 @@ This lab assumes you have:
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>cluster.setPrimaryInstance('root@localhost:3320')</copy>
+    <copy>PortlandCluster.setPrimaryInstance('root@localhost:3320')</copy>
     ```
 
 	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
@@ -296,7 +299,7 @@ This lab assumes you have:
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>cluster.status()</copy>
+    <copy>PortlandCluster.status()</copy>
     ```
 
 ## Task 5: Clean up environment

@@ -211,10 +211,16 @@ This lab assumes you have:
 	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
+    <copy>NWClusterSet = dba.getClusterSet()</copy>
+    ```
+
+	e. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
     <copy>NWClusterSet.status()</copy>
     ```
 
-	e. Failover back to 3310 instance
+	f. Failover back to 3310 instance
     
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
@@ -222,13 +228,13 @@ This lab assumes you have:
     <copy>PortlandCluster.setPrimaryInstance("root@localhost:3310")</copy>
     ```
 
-	f. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	g. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>\connect root@localhost:3310</copy>
     ```
 
-	g. Check status (**Note** You can see extended details by passing the {extended: [1|2} })
+	h. Check status (**Note** You can see extended details by passing the {extended: [1|2} })
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
@@ -236,7 +242,7 @@ This lab assumes you have:
     <copy>PortlandCluster.status()</copy>
     ```
 
-	h. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	i. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>NWClusterSet.status()</copy>

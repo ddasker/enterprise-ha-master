@@ -181,7 +181,7 @@ This lab assumes you have:
 
 ## Task 3: Test failovers
 
-1. Test changing the Primary.  This is good for instances where you want to safely failover to a new Replica
+1. Test changing the Primary.  This is good for situations where you want to safely failover to a new Replica
 
 	a. Failover to 3320 instance
     

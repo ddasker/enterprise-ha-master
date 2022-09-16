@@ -67,21 +67,7 @@ Please note that now you have an instance on the server on port 3306. To connect
     ```
 
 
-## Task 3: **** Still being determined what Sample Database I might use **** Import Sample Databases
-
-1.	Import the employees demo database that is in /workshop/databases folder.
-
-  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>cd /workshop/database/employees/</copy>
-    ```
-
-  **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-    ```
-    <copy>mysql -uroot -p -P3306 -h 127.0.0.1 < ./employees.sql</copy>
-    ```
-
-## Task 4: Learn Useful SQL Statements
+## Task 3: Learn Useful SQL Statements
 
 1. **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
     ```

@@ -44,6 +44,11 @@ This lab assumes you have:
     <copy>mysqlsh</copy>
     ```
 
+	**![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>** 
+
+    ```
+    <copy>\option --persist history.autoSave 1</copy>
+
 2. Create 3 MySQL Sandboxes 
 
 	a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>** 

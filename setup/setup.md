@@ -115,7 +115,7 @@ This lab assumes you have:
     <copy>cd workshop </copy>
     ```
 
-    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
+    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) For the Ashburn Region shell>**
     ```
     <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/Vvqk4JQuFkaX6EKfvEfmA8KkK6FdMoQVJI7E3b6cyUT9Jy43eOcZNGBhVGmZMlZU/n/idazzjlcjqzj/b/bucket-20220901-1608-workshop_RPM/o/workshop.zip</copy>
     ```

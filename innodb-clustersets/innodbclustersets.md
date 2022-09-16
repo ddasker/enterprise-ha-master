@@ -342,10 +342,10 @@ This lab assumes you have:
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copyNWClusterSet.status()</copy>
+    <copy>NWClusterSet.status()</copy>
     ```   
 
-5.	***** STILL WORKING ON THIS.  STOP HERE *******Restart the Secondary (3320)
+5. *** STILL WORKING ON THIS.  STOP HERE *** ****Restart the Secondary (3320)
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```

@@ -337,7 +337,7 @@ This lab assumes you have:
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>\connect root@localhost:3420</copy>
+    <copy>\connect root@localhost:3410</copy>
     ```   
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
@@ -345,7 +345,12 @@ This lab assumes you have:
     <copy>NWClusterSet.status()</copy>
     ```   
 
-5. *** STILL WORKING ON THIS.  STOP HERE *** ****Restart the Secondary (3320)
+	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+	```
+    <copy>SELECT @@port;</copy>
+    ```   
+
+5.  Still working out what to do next
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```

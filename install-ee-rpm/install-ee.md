@@ -126,6 +126,11 @@ This lab assumes you have:
     <copy>GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;</copy>
     ```
 
+ **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+    ```
+    <copy>\quit</copy>
+    ```
+
 
 ## Learn More
 

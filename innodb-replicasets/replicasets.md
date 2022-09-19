@@ -48,6 +48,8 @@ This lab assumes you have:
 
     ```
     <copy>\option --persist history.autoSave 1</copy>
+    ```
+
 
 2. Create 3 MySQL Sandboxes 
 

@@ -355,18 +355,28 @@ This lab assumes you have:
     <copy>SELECT @@port;</copy>
     ```   
 
-5.  Still working out what to do next
+5.  Fail back to Portland Cluster 
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 	```
-    <copy>dba.startSandboxInstance(3320)</copy>
+    <copy>NWClusterSet.setPrimaryCluster('PortlandCluster')</copy>
     ```
+
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	```
+    <copy>\connect root@localhost:3310</copy>
+    ```   
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>PortlandCluster.status()</copy>
+    <copy>NWClusterSet.status()</copy>
     ```
+
+	**![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql>**
+	```
+    <copy>SELECT @@port;</copy>
+    ```   
 
 
 

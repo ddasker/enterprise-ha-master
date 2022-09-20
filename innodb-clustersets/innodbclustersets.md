@@ -246,6 +246,7 @@ This lab assumes you have:
 
     ```
     <copy>NWClusterSet = dba.getClusterSet()</copy>
+    ```
 
 	j. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 

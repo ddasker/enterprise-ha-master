@@ -93,7 +93,7 @@ This lab assumes you have:
 	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>NWClusterSet = PortlandCluster.createClusterSet("PortlandSet")</copy>
+    <copy>NWClusterSet = PortlandCluster.createClusterSet("NWCluster")</copy>
     ```
 
 	e. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**

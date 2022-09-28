@@ -24,11 +24,10 @@ This lab assumes you have:
 
 ## Task 1: Download Lab Material and SSH client
 1. [lecture](files/MySQL_Audit_TDE_08042022.pdf)
-2. [lab guide](files/MySQL_Enterprise_Edition_Bootcamp.pdf)
-3. SSH keys to connect labs (it’s the same key in two different formats).  These keys should have been created when you were creating your Compute Instance.  
+2. SSH keys to connect labs (it’s the same key in two different formats).  These keys should have been created when you were creating your Compute Instance.  
     * id_rsa in native openssl format. Use it with Workbench
     * id_rsa.ppk in putty format for windows. Use it only with putty
-4. If you have not yet installed an SSH client on your laptop, please install one
+3. If you have not yet installed an SSH client on your laptop, please install one
     e.g. (windows) https://www.putty.org/
 
 ## Task 2: Record Lab Server info on Notepad

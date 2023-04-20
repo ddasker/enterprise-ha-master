@@ -104,7 +104,9 @@ This lab assumes you have:
 
     **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
     ```
-    <copy>mkdir workshop </copy>
+    <copy>mkdir workshop 
+      cd workshop</copy>
+
     ```
 
 3.  Wget workshop files 

@@ -5,7 +5,7 @@
 
 **Create your VCN and subnets**
 
-Set up a Virtual Cloud Network (VCN) to connect your Linux instance to the internet. You will configure all the components needed to create your virtual network.
+The first step when deploying a Compute in Oracle Cloud Infrastructure (OCI) is to setup a Virtual Cloud Network. The VCN will be used to connect your linux instance to the internet. You will configure all the components needed to create your virtual network.
 
 _Estimated Time:_ 10 minutes
 
@@ -104,4 +104,4 @@ Description
 
 ## Acknowledgements
 * **Author** - Dale Dasker, MySQL Solution Engineering
-* **Last Updated By/Date** - <Dale Dasker, April 2022
+* **Last Updated By/Date** - <Dale Dasker, April 2023

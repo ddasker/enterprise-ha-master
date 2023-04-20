@@ -10,7 +10,7 @@ Oracle Cloud Infrastructure Compute lets you provision and manage compute hosts,
 
 In this lab, you use Oracle Cloud Infrastructure to create an Oracle Linux instance. 
 
-_Estimated Time:_ 10 minutes
+_Estimated Time:_ 20 minutes
 
 
 

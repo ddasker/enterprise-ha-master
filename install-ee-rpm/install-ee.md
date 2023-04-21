@@ -118,7 +118,8 @@ This lab assumes you have:
 
  **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
     ```
-    <copy>CREATE USER 'admin'@'%' IDENTIFIED BY 'Welcome1!';</copy>
+    <copy>CREATE USER 'admin'@'%' IDENTIFIED BY 'Welcome1!';
+    GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;</copy>
     ```
 
  **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**

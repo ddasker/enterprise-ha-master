@@ -157,13 +157,8 @@ This lab assumes you have:
 	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
 
     ```
-    <copy>mkdir ~/mysqlrouter</copy>
-    ```
-
-	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
-
-    ```
-    <copy>cd ~/mysqlrouter</copy>
+    <copy>mkdir ~/mysqlrouter
+    cd ~/mysqlrouter</copy>
     ```
 
 2.	Bootstrap MySQL Router and Deploy Router against 3310 Instance (Which is now the Source) 

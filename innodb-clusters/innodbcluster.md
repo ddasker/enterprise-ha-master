@@ -53,7 +53,9 @@ This lab assumes you have:
 	a. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>** 
 
     ```
-    <copy>dba.deploySandboxInstance(3310, {password: "password"})</copy>
+    <copy>dba.deploySandboxInstance(3310, {password: "password"})
+    dba.deploySandboxInstance(3320, {password: "password"})
+    dba.deploySandboxInstance(3330, {password: "password"})</copy>
     ```
 
     b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>** 

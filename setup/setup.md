@@ -23,7 +23,8 @@ This lab assumes you have:
 * All previous labs successfully completed
 
 ## Task 1: Download Lab Material and SSH client
-1. [presentation](files/MySQL_HA_09292022.pdf)
+1. [presentation](files/MySQL_HA_04262023.pdf)
+   [WorkshopInstructions](files/CompleteWorkshop.pdf)
 2. SSH keys to connect labs (it’s the same key in two different formats).  These keys should have been created when you were creating your Compute Instance.  
     * id_rsa in native openssl format. Use it with Workbench
     * id_rsa.ppk in putty format for windows. Use it only with putty

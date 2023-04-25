@@ -256,27 +256,15 @@ This lab assumes you have:
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
     ```
-    <copy>dba.stopSandboxInstance(3310, {password: "password"})</copy>
+    <copy>dba.stopSandboxInstance(3310, {password: "password"})
+    dba.stopSandboxInstance(3330, {password: "password"})</copy>
     ```
 
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
     ```
-    <copy>dba.stopSandboxInstance(3330, {password: "password"})</copy>
-    ```
-
-    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-    ```
-    <copy>dba.deleteSandboxInstance(3310)</copy>
-    ```
-
-    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-    ```
-    <copy>dba.deleteSandboxInstance(3320)</copy>
-    ```
-
-    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
-    ```
-    <copy>dba.deleteSandboxInstance(3330)</copy>
+    <copy>dba.deleteSandboxInstance(3310)
+    dba.deleteSandboxInstance(3320)
+    dba.deleteSandboxInstance(3330)</copy>
     ```
 
 2.	Stop MySQL Router and remove the files

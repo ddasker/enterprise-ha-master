@@ -115,8 +115,6 @@ This lab assumes you have:
     **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) For the Ashburn Region shell>**
     ```
     <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/b9kFwROi1c9YcXS3S7LKcJ0HC5ul_5cNIKv--bGGHC32jBbznKDqeLkt4njo094e/n/idazzjlcjqzj/b/bucket-20220901-1608-workshop_RPM/o/workshop32.zip</copy>
-##    <copy>wget https://objectstorage.us-ashburn-1.oraclecloud.com/p/sMrpNS-iLkClQhUgOKh1JB-eSqfcGTj7t-WD4swwqj08bL2s93eIYDNuyCQ0cF1q/n/idazzjlcjqzj/b/bucket-20220901-1608-workshop_RPM/o/workshop32.zip</copy>
-##    <copy>wget  https://objectstorage.us-ashburn-1.oraclecloud.com/p/WTu4TLn77_zTRNpHh2471dSS_AYojuhpKydcRsSE6S75EojezJ_oLT6H0X7tB1AQ/n/idazzjlcjqzj/b/bucket-20220901-1608-workshop_RPM/o/workshop32.zip;</copy>
     ```
     
 4.  Extract workshop files 

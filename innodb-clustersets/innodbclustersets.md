@@ -369,8 +369,7 @@ This lab assumes you have:
 
 ## Learn More
 
-* [CREATE USER](https://dev.mysql.com/doc/refman/8.0/en/create-user.html)
-* [MySQL Access Control Lists](https://dev.mysql.com/doc/refman/8.0/en/access-control.html)
+* [InnoDB ClusterSets](https://dev.mysql.com/doc/mysql-shell/8.0/en/innodb-clusterset.html)
 
 ## Acknowledgements
 * **Author** - Dale Dasker, MySQL Solution Engineering

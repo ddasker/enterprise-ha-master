@@ -33,10 +33,6 @@ This lab assumes you have:
     - ![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+) mysql> the command must be executed in a client like MySQL, MySQL Workbench
     - ![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh> the command must be executed in MySQL shell
     
-**Notes:**
-- Open a notepad file and  your linux Private IP on student###-serverA 
-
-- serverA  PRIVATE ip: (client_ip)
 
 ## Task 1: Connect to mysql-enterprise on Server
 

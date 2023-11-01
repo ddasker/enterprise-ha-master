@@ -99,6 +99,7 @@ This lab assumes you have:
     ```
 
 	c. Search for non-InnoDB tables
+
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
@@ -109,6 +110,7 @@ This lab assumes you have:
     ```
 
 	d. Search for InnoDB tables without Primary or Unique Keys:
+
     **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```

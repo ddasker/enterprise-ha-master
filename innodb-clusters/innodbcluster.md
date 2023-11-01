@@ -95,10 +95,32 @@ This lab assumes you have:
 	b. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
+    <copy>\sql</copy>
+    ```
+
+	c. Search for non-InnoDB tables
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>SELECT table_schema, table_name, engine, table_rows, (index_length+data_length)/1024/1024 AS sizeMB
+          FROM information_schema.tables
+          WHERE engine != 'innodb'
+          AND table_schema NOT IN ('information_schema', 'mysql', 'performance_schema');</copy>
+    ```
+
+	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>\js</copy>
+    ```
+
+	e. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
     <copy>var PortlandCluster = dba.createCluster("PortlandCluster")</copy>
     ```
 
-	c. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	f. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>PortlandCluster.status()</copy>

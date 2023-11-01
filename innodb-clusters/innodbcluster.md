@@ -108,19 +108,42 @@ This lab assumes you have:
           AND table_schema NOT IN ('information_schema', 'mysql', 'performance_schema');</copy>
     ```
 
-	d. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+	d. Search for InnoDB tables without Primary or Unique Keys:
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>\js</copy>
+    <copy>SELECT tables.table_schema, tables.table_name, tables.engine, tables.table_rows
+          FROM information_schema.tables
+            LEFT JOIN (select table_schema, table_name
+          FROM information_schema.statistics
+           GROUP BY table_schema, table_name, index_name HAVING
+          SUM(CASE
+            WHEN non_unique = 0
+            AND nullable != 'YES' then 1 ELSE 0
+            END
+               ) = count(*)
+             ) puks
+          ON tables.table_schema = puks.table_schema
+          AND tables.table_name = puks.table_name 
+          WHERE puks.table_name is null
+             AND tables.table_type = 'BASE TABLE'
+             AND engine='InnoDB'
+             AND tables.table_schema NOT IN ('information_schema', 'mysql', 'performance_schema');</copy>
     ```
 
 	e. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
-    <copy>var PortlandCluster = dba.createCluster("PortlandCluster")</copy>
+    <copy>\js</copy>
     ```
 
 	f. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
+
+    ```
+    <copy>var PortlandCluster = dba.createCluster("PortlandCluster")</copy>
+    ```
+
+	g. **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>**
 
     ```
     <copy>PortlandCluster.status()</copy>

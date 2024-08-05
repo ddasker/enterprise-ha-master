@@ -121,7 +121,7 @@ This lab assumes you have:
 
     **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>**
     ```
-    <copy>unzip  workshop32.zip </copy>
+    <copy>tar xvf  workshop84.tar </copy>
     ```
 
 

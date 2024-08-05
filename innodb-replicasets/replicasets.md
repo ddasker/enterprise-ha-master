@@ -43,6 +43,11 @@ This lab assumes you have:
     ```
     <copy>mysqlsh</copy>
     ```
+    **![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>** 
+
+    ```
+    <copy>\js</copy>
+    ```
 
 	**![#ff9933](https://via.placeholder.com/15/ff9933/000000?text=+) mysqlsh>** 
 

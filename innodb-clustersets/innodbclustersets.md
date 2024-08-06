@@ -41,7 +41,7 @@ This lab assumes you have:
    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
 
     ```
-    <copy>mysqlsh</copy>
+    <copy>mysqlsh --js</copy>
     ```
 
 2. Create 3 Additional MySQL Sandboxes 

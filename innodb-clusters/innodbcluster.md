@@ -71,7 +71,7 @@ This lab assumes you have:
 	**![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
 
     ```
-    <copy>mysql -P3310 --protocol=tcp -uroot -ppassword world < world_innodb.sql</copy>
+    <copy>mysql -P3310 --protocol=tcp -uroot -ppassword world < ~/workshop/world_innodb.sql</copy>
     ```
 
 ## Task 2: Create InnoDB Cluster 
@@ -81,7 +81,7 @@ This lab assumes you have:
    **![#00cc00](https://via.placeholder.com/15/00cc00/000000?text=+) shell>** 
 
     ```
-    <copy>mysqlsh</copy>
+    <copy>mysqlsh --js</copy>
     ```
 
 2. Using the MySQL Shell Connection, connect the Shell to Sandbox on Port 3310 and create InnoDB Cluster

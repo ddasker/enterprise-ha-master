@@ -5,6 +5,7 @@
 InnoDB Cluster:
 Objective: deploying MySQL sandboxes and then creating an InnoDB Cluster
 
+![](images/InnoDBCluster.png)
 
 *This lab walks you through creating MySQL Sandboxes, deploying InnoDB Cluster, bootstrapping MySQL Router and testing failovers
 

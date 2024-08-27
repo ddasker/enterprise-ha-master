@@ -5,7 +5,7 @@
 InnoDB ReplicaSets
 Objective: deploying MySQL sandboxes and then creating an InnoDB ReplicaSet
 
-<p><img src="./images/ReplicaSets.png"></p>
+![](images/ReplicaSets.png)
 
 *This lab walks you through creating MySQL Sandboxes, deploying InnoDB ReplicaSets, bootstrapping MySQL Router and testing failovers
 
